@@ -7,9 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      # Personal content, provided via Dokploy → Advanced → Mounts → File Mount.
-      # Create a File Mount named "config.json" (paste real config) — Dokploy stores
-      # it under ../files/ next to this compose; this line mounts it into the app.
-      - ../files/config.json:/app/public/config.json:ro
-      # Persist her answers (sqlite + jsonl) outside the container.
+      # Persistent volume: holds the answers DB/JSONL *and* the personal config.json.
+      # Drop your real config.json in here (next to answers.db) and the backend
+      # serves it as /config.json — no rebuild, no fragile single-file mount.
       - ./data:/app/data

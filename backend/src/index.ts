@@ -1,15 +1,36 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "hono/bun";
+import { existsSync } from "node:fs";
 import { saveAnswer } from "./store.ts";
 import { pushNtfy } from "./ntfy.ts";
 
 const app = new Hono();
 const PORT = Number(process.env.PORT ?? 3000);
 const STATIC_DIR = process.env.STATIC_DIR ?? "./public";
+const DATA_DIR = process.env.DATA_DIR ?? "./data";
 
 // CORS only matters in dev when Vite (5173) talks to the API (3000).
 app.use("/api/*", cors());
+
+// Personal content override: if a config.json exists in the (persistent) data
+// volume, serve that instead of the baked-in one. Lets you drop the real config
+// next to the database without rebuilding. Served no-store so edges/browsers
+// never cache a stale copy. Falls through to the static file otherwise.
+app.get("/config.json", async (c) => {
+  const override = `${DATA_DIR}/config.json`;
+  if (existsSync(override)) {
+    try {
+      const text = await Bun.file(override).text();
+      return new Response(text, {
+        headers: { "content-type": "application/json", "cache-control": "no-store" },
+      });
+    } catch {
+      // fall through to static below
+    }
+  }
+  return c.notFound(); // static handler (registered later) serves the baked file
+});
 
 app.get("/api/health", (c) => c.json({ ok: true, ts: new Date().toISOString() }));
 
