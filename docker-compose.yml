@@ -1,0 +1,11 @@
+services:
+  app:
+    image: ghcr.io/gsaraiva2109/wouldyoudateme:latest
+    pull_policy: always
+    container_name: wouldyoudateme
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Persist her answers (sqlite + jsonl) outside the container.
+      - ./data:/app/data

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+data/
+.env
+.context.xml
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Personal content — provided at runtime (Dokploy file-mount), never committed
+frontend/public/config.json

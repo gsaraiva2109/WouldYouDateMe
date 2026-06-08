@@ -1,0 +1,80 @@
+{
+  "girlName": "Fulana",
+  "theme": {
+    "songTitle": "Your Song",
+    "songArtist": "Some Artist"
+  },
+  "copy": {
+    "teaser": {
+      "eyebrow": "para uma pessoa específica",
+      "headline": "uma musiquinha…",
+      "sub": "tenho uma pergunta pra te fazer.",
+      "cta": "Bora?"
+    },
+    "ask": {
+      "headline": "Fulana, sai comigo?",
+      "sub": "Primeiro encontro. Sem pressão. (Tá, um pouquinho de pressão.)",
+      "yes": "Sim!",
+      "noLabels": ["Não", "Tem certeza?", "Pensa de novo…", "Sério mesmo?", "Última chance", "Tá, foge de mim então 😏"]
+    },
+    "activity": {
+      "headline": "Boa. E aí, o que rola?",
+      "sub": "Escolhe o clima do nosso primeiro round."
+    },
+    "schedule": {
+      "headline": "Quando?",
+      "sub": "Marca o dia e a hora que eu apareço."
+    },
+    "place": {
+      "headline": "Onde?",
+      "sub": "Separei alguns lugares que combinam. Escolhe um — ou sugere o teu.",
+      "suggestLabel": "Tem outro lugar em mente?",
+      "suggestPlaceholder": "manda o nome do rolê…",
+      "empty": "Escolhe um lugar ou sugere o teu pra continuar.",
+      "next": "Continuar"
+    },
+    "message": {
+      "headline": "Quer deixar um recado?",
+      "sub": "Opcional — manda aquela indireta.",
+      "placeholder": "Escreve aqui… (ou deixa em branco)",
+      "submit": "Confirmar"
+    },
+    "celebration": {
+      "headline": "É um encontro! 🎉",
+      "sub": "Já tô contando os dias. Te aviso os detalhes.",
+      "recapTitle": "O combinado:"
+    },
+    "errors": {
+      "submit": "Deu ruim no envio. Tenta de novo?"
+    }
+  },
+  "activities": [
+    { "id": "jantar", "label": "Jantar", "emoji": "🍝", "blurb": "Comida boa, papo melhor.", "buckets": ["almoco", "noite"] },
+    { "id": "drinks", "label": "Drinks", "emoji": "🍸", "blurb": "Um barzinho com a vibe certa.", "buckets": ["noite"] },
+    { "id": "cafe", "label": "Café", "emoji": "☕", "blurb": "Leve, de dia, sem compromisso.", "buckets": ["manha", "tarde"] },
+    { "id": "passeio", "label": "Passeio", "emoji": "🌆", "blurb": "Caminhar e ver onde dá.", "buckets": ["manha", "almoco", "tarde", "noite"] }
+  ],
+  "slots": [
+    { "day": "Sexta", "times": ["12:00", "19:00"] },
+    { "day": "Sábado", "times": ["09:00", "12:00", "17:00", "19:00"] },
+    { "day": "Domingo", "times": ["09:00", "12:00", "17:00"] }
+  ],
+  "venues": {
+    "jantar": {
+      "almoco": [{ "name": "<Restaurante almoço>", "area": "<bairro>", "note": "" }],
+      "noite": [{ "name": "<Restaurante jantar>", "area": "<bairro>", "note": "" }]
+    },
+    "drinks": {
+      "noite": [{ "name": "<Bar>", "area": "<bairro>", "note": "" }]
+    },
+    "cafe": {
+      "manha": [{ "name": "<Café manhã>", "area": "<bairro>", "note": "" }],
+      "tarde": [{ "name": "<Café tarde>", "area": "<bairro>", "note": "" }]
+    },
+    "passeio": {
+      "manha": [{ "name": "<Passeio>", "area": "<bairro>", "note": "" }],
+      "tarde": [{ "name": "<Passeio>", "area": "<bairro>", "note": "" }],
+      "noite": [{ "name": "<Passeio>", "area": "<bairro>", "note": "" }]
+    }
+  }
+}
